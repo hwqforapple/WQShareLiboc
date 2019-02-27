@@ -1,0 +1,16 @@
+PODS:
+  - WQShareLiboc (0.1.0)
+
+DEPENDENCIES:
+  - WQShareLiboc (from `../`)
+
+EXTERNAL SOURCES:
+  WQShareLiboc:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  WQShareLiboc: d2b137a9e963dda6b88eb6a59f2640bbb3abb2b3
+
+PODFILE CHECKSUM: 630bafa85892cf2ac412bd27d35e2e77134e91bc
+
+COCOAPODS: 1.5.3
