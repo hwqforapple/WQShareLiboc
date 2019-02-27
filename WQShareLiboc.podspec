@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WQShareLiboc'
-  s.version          = '0.1.0'
+  s.version          = '0.0.1'
   s.summary          = '一键快速集成微博，微信，分享OC版'
 
 # This description is used to generate tags and improve search results.
