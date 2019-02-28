@@ -10,6 +10,8 @@
 #endif
 #endif
 
+#import "WQShareLiboc.h"
+#import "WQSinaShareHelper.h"
 
 FOUNDATION_EXPORT double WQShareLibocVersionNumber;
 FOUNDATION_EXPORT const unsigned char WQShareLibocVersionString[];

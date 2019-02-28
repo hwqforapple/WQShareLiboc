@@ -9,13 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'WQShareLiboc'
   s.version          = '0.0.1'
-  s.summary          = '一键快速集成微博，微信，分享OC版'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = '快速分享到微博，微信等OC版'
 
   s.description      = <<-DESC
   集成微博，微信，QQ分享OC版，方便使用！
@@ -37,5 +31,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'MapKit'
-  s.dependency "Weibo_SDK", :path=> "https://github.com/sinaweibosdk/weibo_ios_sdk.git"
+  s.dependency 'Weibo_SDK'
+  # :git=> 'https://github.com/sinaweibosdk/weibo_ios_sdk.git'
 end

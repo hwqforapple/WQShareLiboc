@@ -1,16 +1,23 @@
 PODS:
-  - WQShareLiboc (0.1.0)
+  - Weibo_SDK (3.2.3)
+  - WQShareLiboc (0.0.1):
+    - Weibo_SDK
 
 DEPENDENCIES:
   - WQShareLiboc (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Weibo_SDK
 
 EXTERNAL SOURCES:
   WQShareLiboc:
     :path: "../"
 
 SPEC CHECKSUMS:
-  WQShareLiboc: d2b137a9e963dda6b88eb6a59f2640bbb3abb2b3
+  Weibo_SDK: 652ca78c2f7147a5de5e75e7cbea89838a81772a
+  WQShareLiboc: 8765a230489c3eeecb4d4650701cb0d3dfdccfd5
 
-PODFILE CHECKSUM: 630bafa85892cf2ac412bd27d35e2e77134e91bc
+PODFILE CHECKSUM: c6d0325dbb56fc482b68b6f70701be6e7c4580dc
 
 COCOAPODS: 1.5.3

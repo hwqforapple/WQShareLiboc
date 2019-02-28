@@ -1,6 +1,0 @@
-framework module Pods_WQShareLiboc_Tests {
-  umbrella header "Pods-WQShareLiboc_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}

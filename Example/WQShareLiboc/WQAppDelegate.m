@@ -7,12 +7,15 @@
 //
 
 #import "WQAppDelegate.h"
+#import <WQShareLiboc/WQShareLiboc.h>
 
+#define WEIBO_APPKEY @"782556629"
 @implementation WQAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [WQSinaShareHelper initSinaWeiBo:WEIBO_APPKEY isDebug:YES];
     return YES;
 }
 
