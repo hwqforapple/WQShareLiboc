@@ -26,6 +26,9 @@
   "dependencies": {
     "Weibo_SDK": [
 
+    ],
+    "WechatOpenSDK": [
+
     ]
   }
 }
