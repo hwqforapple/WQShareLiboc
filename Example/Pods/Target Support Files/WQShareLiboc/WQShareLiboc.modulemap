@@ -1,6 +1,0 @@
-framework module WQShareLiboc {
-  umbrella header "WQShareLiboc-umbrella.h"
-
-  export *
-  module * { export * }
-}
