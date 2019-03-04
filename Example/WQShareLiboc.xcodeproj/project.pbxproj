@@ -398,7 +398,7 @@
 				INFOPLIST_FILE = "WQShareLiboc/WQShareLiboc-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.6shitu.res.WQTestSina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyche.tkzg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -415,7 +415,7 @@
 				INFOPLIST_FILE = "WQShareLiboc/WQShareLiboc-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.6shitu.res.WQTestSina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyche.tkzg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
