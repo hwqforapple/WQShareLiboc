@@ -46,4 +46,18 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    if ([url.absoluteString containsString:[NSString stringWithFormat:@"wb%@",WEIBO_APPKEY]]) {
+        
+    }
+        return YES;
+}
+    
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation {
+    if ([url.absoluteString containsString:[NSString stringWithFormat:@"wb%@",WEIBO_APPKEY]]) {
+        
+    }
+    return YES;
+}
+
 @end

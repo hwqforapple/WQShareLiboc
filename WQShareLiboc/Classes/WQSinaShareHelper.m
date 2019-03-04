@@ -6,7 +6,11 @@
 //
 
 #import "WQSinaShareHelper.h"
-#import <Weibo_SDK/WeiboSDK.h>
+
+
+@interface WQSinaShareHelper()<WeiboSDKDelegate>
+
+@end
 
 @implementation WQSinaShareHelper
     
@@ -30,5 +34,12 @@
     return NO;
 }
     
- 
++ (BOOL)handleUrl:(NSURL *)url delegate:(id<WeiboSDKDelegate>)delegate {
+    return [WeiboSDK handleOpenURL:url delegate:delegate];
+}
+    
+    
++ (void)handleBackData {
+    
+}
     @end

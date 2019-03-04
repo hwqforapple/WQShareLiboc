@@ -6,10 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Weibo_SDK/WeiboSDK.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WQSinaShareHelper : NSObject
+@interface WQSinaShareHelper : NSObject 
 
 /**
  初始化新浪微博参数
@@ -20,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)initSinaWeiBo:(NSString *)appKey isDebug:(BOOL)debug;
 
 + (BOOL)shareToSinaWeiBo:(NSString *)content singleImage:(UIImage *)image;
+    
++ (BOOL)handleUrl:(NSURL *)url delegate:(id<WeiboSDKDelegate>)delegate;
     
 @end
 
