@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'WQShareLiboc'
   s.version          = '0.1.0'
-  s.summary          = 'dahsgdfjasdfgamsdfg'
+  s.summary          = 'QQ，微博，微信分享库'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  ksjdfhasdfhasnfiasdbfm,gjaskdfbnalksfkasn,msxjbn n,amsamsxsnmzjxbc smdcx
+  微信,QQ,新浪微博分享功能实现，简单集成，方便使用
                        DESC
 
   s.homepage         = 'https://github.com/hwqforapple/WQShareLiboc'
@@ -38,5 +38,7 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'MapKit'
+  s.dependency 'Weibo_SDK'
+  s.dependency 'WechatOpenSDK'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

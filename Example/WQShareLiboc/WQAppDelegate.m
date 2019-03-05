@@ -11,15 +11,16 @@
 
 #define SINA_APPKEY @""
 #define WECHAT_APPKEY @""
+#define QQ_APPKEY @""
 
 @implementation WQAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [WQShareSinaHelp initSina:@"" isDebug:YES];
-    [WQWechatHelp initWechat:@""];
-    [WQShareQQHelp initQQ:@""];
+    [WQShareSinaHelp initSinaWeiBo:SINA_APPKEY isDebug:YES];
+    [WQWechatHelp initWechat:WECHAT_APPKEY];
+    [WQShareQQHelp initQQ:QQ_APPKEY];
     
     return YES;
 }

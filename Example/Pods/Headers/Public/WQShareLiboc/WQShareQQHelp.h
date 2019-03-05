@@ -1,0 +1,1 @@
+../../../../../WQShareLiboc/Classes/WQShareQQHelp.h

@@ -1,15 +1,26 @@
 PODS:
-  - WQShareLiboc (0.1.0)
+  - WechatOpenSDK (1.8.4)
+  - Weibo_SDK (3.2.3)
+  - WQShareLiboc (0.1.0):
+    - WechatOpenSDK
+    - Weibo_SDK
 
 DEPENDENCIES:
   - WQShareLiboc (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - WechatOpenSDK
+    - Weibo_SDK
 
 EXTERNAL SOURCES:
   WQShareLiboc:
     :path: "../"
 
 SPEC CHECKSUMS:
-  WQShareLiboc: f91ccad09284469029c8a65b5d19fafbe75af426
+  WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
+  Weibo_SDK: 652ca78c2f7147a5de5e75e7cbea89838a81772a
+  WQShareLiboc: 5d3721e491e228043ecb36513697d7df8d0a4879
 
 PODFILE CHECKSUM: bf4c7d0570f5e49988e93d28d1c0c1eb6288fc19
 
