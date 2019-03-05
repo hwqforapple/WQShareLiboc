@@ -22,24 +22,17 @@
 }
 
 + (WQShareReturnType)shareImage:(UIImage *)image thumbData:(UIImage *)thumbImage shareType:(WQShareType)type {
-    NSData *imageData = UIImageJPEGRepresentation(image, 1);
-    if (imageData.length > 25 * 1024 * 1024) {
-        return WQShareReturnTypeImageSize;
-    }
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.7);
     WXImageObject *imageObject = [WXImageObject object];
     imageObject.imageData = imageData;
     WXMediaMessage *message = [WXMediaMessage message];
-    NSData *thumbData = UIImageJPEGRepresentation(thumbImage, 1);
+    NSData *thumbData = UIImageJPEGRepresentation(thumbImage, 0.7);
     if (thumbData.length > 32 * 1024) {
         return WQShareReturnTypeThumbImageSizeError;
     }
     message.thumbData = thumbData;
     message.mediaObject = imageObject;
-    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
-    req.bText = NO;
-    req.message = message;
-    req.scene = WXSceneTimeline;
-    [WXApi sendReq:req];
+    [self sendMessage:message shareType:type];
     return WQShareReturnTypeSucceed;
 }
 
@@ -82,7 +75,6 @@
              req.scene = WXSceneTimeline;
             break;
     }
-    
     [WXApi sendReq:req];
 }
 @end

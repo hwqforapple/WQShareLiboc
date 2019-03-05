@@ -43,7 +43,8 @@
 }
 
 - (void)shareToWeChat {
-   WQShareReturnType type = [WQWechatHelp shareWeb:@"http://6shitu.com" title:@"6视图网-高清壁纸图片素材下载站" description:@"免费高清素材下载,美女高清壁纸下载" thumbImage:[UIImage imageNamed:@"6shitu-bizhi324"]];
+    WQShareReturnType type = [WQWechatHelp shareImage:[UIImage imageNamed:@"6shitu-bizhi324"] thumbData:[UIImage imageNamed:@"6shitu-bizhi324thu"] shareType:WQShareTypeChat];
+//    [WQWechatHelp shareWeb:@"http://6shitu.com" title:@"6视图网-高清壁纸图片素材下载站" description:@"免费高清素材下载,美女高清壁纸下载" thumbImage:[UIImage imageNamed:@"6shitu-bizhi324"] shareType:WQShareTypeChat];
     switch (type) {
         case WQShareReturnTypeThumbImageSizeError:
             {

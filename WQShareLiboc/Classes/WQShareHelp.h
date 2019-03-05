@@ -11,4 +11,6 @@
 #import "WQShareSinaHelp.h"
 #import "WQWechatHelp.h"
 #import "WQShareQQHelp.h"
+#import "WQWXApiManager.h"
+
 #endif /* WQShareHelp_h */

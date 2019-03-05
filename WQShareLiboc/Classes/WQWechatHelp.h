@@ -30,6 +30,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)initWechat:(NSString *)appKey;
 
 /**
+ 分享大图
+
+ @param image t大图 <25M
+ @param thumbImage 缩略图
+ @param type 分享到朋友圈或者聊天列表或者收藏夹
+ @return 返回失败的错误提示
+ */
++ (WQShareReturnType)shareImage:(UIImage *)image thumbData:(UIImage *)thumbImage shareType:(WQShareType)type;
+/**
  分享网页
 
  @param webUrl 网址链接
