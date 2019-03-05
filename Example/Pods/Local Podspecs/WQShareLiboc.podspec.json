@@ -1,0 +1,26 @@
+{
+  "name": "WQShareLiboc",
+  "version": "0.1.0",
+  "summary": "dahsgdfjasdfgamsdfg",
+  "description": "ksjdfhasdfhasnfiasdbfm,gjaskdfbnalksfkasn,msxjbn n,amsamsxsnmzjxbc smdcx",
+  "homepage": "https://github.com/hwqforapple/WQShareLiboc",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hwqforapple@163.com": "hwqforapple@163.com"
+  },
+  "source": {
+    "git": "https://github.com/hwqforapple/WQShareLiboc.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "WQShareLiboc/Classes/**/*",
+  "frameworks": [
+    "UIKit",
+    "MapKit"
+  ]
+}
