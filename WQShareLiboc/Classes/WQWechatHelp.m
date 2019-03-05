@@ -21,7 +21,7 @@
     [WXApi sendReq:req];
 }
 
-+ (WQShareReturnType)shareImage:(UIImage *)image thumbData:(UIImage *)thumbImage {
++ (WQShareReturnType)shareImage:(UIImage *)image thumbData:(UIImage *)thumbImage shareType:(WQShareType)type {
     NSData *imageData = UIImageJPEGRepresentation(image, 1);
     if (imageData.length > 25 * 1024 * 1024) {
         return WQShareReturnTypeImageSize;
@@ -43,7 +43,7 @@
     return WQShareReturnTypeSucceed;
 }
 
-+ (WQShareReturnType)shareWeb:(NSString *)webUrl title:(NSString *)title description:(NSString *)description thumbImage:(UIImage *)thumbImage {
++ (WQShareReturnType)shareWeb:(NSString *)webUrl title:(NSString *)title description:(NSString *)description thumbImage:(UIImage *)thumbImage shareType:(WQShareType)type {
     NSData *urlData = [webUrl dataUsingEncoding:NSUTF8StringEncoding];
     if (webUrl == nil || [webUrl isKindOfClass:[NSNull class]] || webUrl.length < 1|| urlData.length > 10*1024) {
         return WQShareReturnTypeURLError;
@@ -52,10 +52,6 @@
     if (title == nil || [title isKindOfClass:[NSNull class]] || title.length < 1|| titleData.length > 512) {
         return WQShareReturnTypeURLError;
     }
-    if (UIImageJPEGRepresentation(thumbImage, 1).length > 64 * 1024) {
-        return WQShareReturnTypeThumbImageSizeError;
-    }
-    
     WXWebpageObject *webobject = [WXWebpageObject object];
     webobject.webpageUrl = webUrl;
     WXMediaMessage *message = [WXMediaMessage message];
@@ -63,16 +59,30 @@
     message.description = description;
     [message setThumbImage:thumbImage];
     message.mediaObject = webobject;
-    [self sendMessage:message];
+    [self sendMessage:message shareType:type];
     return  WQShareReturnTypeSucceed;
 }
 
 /**发送媒体类消息*/
-+ (void)sendMessage:(WXMediaMessage *)message {
++ (void)sendMessage:(WXMediaMessage *)message shareType:(WQShareType)type {
     SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
     req.bText = NO;
     req.message = message;
-    req.scene = WXSceneSession;
+    switch (type) {
+        case WQShareTypeChat:
+        { req.scene = WXSceneSession;}
+            break;
+        case WQShareTypeTimeLine:
+        { req.scene = WXSceneTimeline;}
+            break;
+        case WQShareTypeCollection:
+        { req.scene = WXSceneFavorite;}
+            break;
+        default:
+             req.scene = WXSceneTimeline;
+            break;
+    }
+    
     [WXApi sendReq:req];
 }
 @end

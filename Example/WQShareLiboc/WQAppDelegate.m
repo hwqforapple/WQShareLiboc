@@ -10,7 +10,7 @@
 #import <WQShareLiboc/WQShareHelp.h>
 
 #define SINA_APPKEY @""
-#define WECHAT_APPKEY @""
+#define WECHAT_APPKEY @"wx575ca3588cc6f19e"
 #define QQ_APPKEY @""
 
 @implementation WQAppDelegate

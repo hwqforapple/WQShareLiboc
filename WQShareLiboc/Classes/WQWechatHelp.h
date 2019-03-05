@@ -17,11 +17,29 @@ typedef enum : NSUInteger {
     WQShareReturnTypeSucceed,//数据成功通过
 } WQShareReturnType;
 
+typedef enum : NSUInteger {
+    WQShareTypeChat,//聊天列表
+    WQShareTypeTimeLine,//朋友圈
+    WQShareTypeCollection,//收藏
+} WQShareType;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WQWechatHelp : NSObject
 
 + (void)initWechat:(NSString *)appKey;
+
+/**
+ 分享网页
+
+ @param webUrl 网址链接
+ @param title 标题
+ @param description 描述信息
+ @param thumbImage 缩略图
+ @param type WQShareTypeChat - 聊天列表 ，WQShareTypeTimeLine-朋友圈
+ @return 检测数据异常时候返回提示
+ */
++ (WQShareReturnType)shareWeb:(NSString *)webUrl title:(NSString *)title description:(NSString *)description thumbImage:(UIImage *)thumbImage shareType:(WQShareType)type;
 
 @end
 
