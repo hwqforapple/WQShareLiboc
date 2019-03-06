@@ -43,6 +43,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)shareToSinaWeiBo:(NSString *)content images:(NSArray *)images shareToStory:(BOOL)isShareToStory;
 
 + (BOOL)handleUrl:(NSURL *)url delegate:(id<WeiboSDKDelegate>)delegate;
+    
+- (BOOL)application:(UIApplication *)application
+                openURL:(NSURL *)url
+      sourceApplication:(NSString *)sourceApplication
+             annotation:(id)annotation NS_DEPRECATED_IOS(4_2, 9_0, "Please use application:openURL:options:") __TVOS_PROHIBITED;
+    
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options;
 @end
 
 NS_ASSUME_NONNULL_END

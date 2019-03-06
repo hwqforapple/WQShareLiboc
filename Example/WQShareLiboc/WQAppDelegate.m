@@ -56,9 +56,20 @@
     if ([url.absoluteString containsString:WECHAT_APPKEY]) {
         [WXApi handleOpenURL:url delegate:[WQWXApiManager shareManager]];
         return YES;
-    } else if ([url.absoluteString containsString:@""]) {
-        
     }
+//    else if ([url.absoluteString containsString:@""]) {
+//
+//    }
+    [[WQShareSinaHelp shareHelp] application:app openURL:url options:options];
+    return YES;
+}
+    
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([url.absoluteString containsString:WECHAT_APPKEY]) {
+        [WXApi handleOpenURL:url delegate:[WQWXApiManager shareManager]];
+        return YES;
+    }
+    return [[WQShareSinaHelp shareHelp] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     return YES;
 }
 @end

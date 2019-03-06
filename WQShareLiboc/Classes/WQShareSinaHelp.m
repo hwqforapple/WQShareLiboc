@@ -6,6 +6,7 @@
 //
 
 #import "WQShareSinaHelp.h"
+#import <WQShareHUD.h>
 @interface WQShareSinaHelp()<WeiboSDKDelegate,WBMediaTransferProtocol>
     
 @property (strong, nonatomic) WBSendMessageToWeiboRequest *request;
@@ -83,6 +84,14 @@
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     self.request = nil;
     self.message = nil;
+    if (response.statusCode == WeiboSDKResponseStatusCodeSuccess) {
+        [WQShareHUD showTips:@"分享成功"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"WQShreWeiBoRequestSucceed" object:nil];
+    } else if (response.statusCode == WeiboSDKResponseStatusCodeUserCancel) {
+        [WQShareHUD showTips:@"取消分享"];
+    } else {
+        [WQShareHUD showTips:@"分享失败"];
+    }
 }
     
 - (void)wbsdk_TransferDidFailWithErrorCode:(WBSDKMediaTransferErrorCode)errorCode andError:(NSError *)error {
@@ -93,4 +102,17 @@
       [WeiboSDK sendRequest:self.request];
 }
     
+    
+- (BOOL)application:(UIApplication *)application
+                openURL:(NSURL *)url
+      sourceApplication:(NSString *)sourceApplication
+             annotation:(id)annotation {
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+    
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
     @end
