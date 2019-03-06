@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)initSinaWeiBo:(NSString *)appKey isDebug:(BOOL)debug;
 
-+ (BOOL)shareToSinaWeiBo:(NSString *)content singleImage:(UIImage *)image;
++ (BOOL)shareToSinaWeiBo:(NSString *)content images:(NSArray *)images shareToStory:(BOOL)isShareToStory;
 
 + (BOOL)handleUrl:(NSURL *)url delegate:(id<WeiboSDKDelegate>)delegate;
 @end

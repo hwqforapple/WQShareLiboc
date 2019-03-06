@@ -493,7 +493,7 @@
 				GCC_PREFIX_HEADER = "WQShareLiboc/WQShareLiboc-Prefix.pch";
 				INFOPLIST_FILE = "WQShareLiboc/WQShareLiboc-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tyche.tkzg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.wc.xin.SDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -509,7 +509,7 @@
 				GCC_PREFIX_HEADER = "WQShareLiboc/WQShareLiboc-Prefix.pch";
 				INFOPLIST_FILE = "WQShareLiboc/WQShareLiboc-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tyche.tkzg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.wc.xin.SDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

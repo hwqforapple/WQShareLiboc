@@ -12,6 +12,7 @@
 @interface WQViewController ()
 
 @property (weak, nonatomic) UIButton *wechatButton;
+@property (weak, nonatomic) UIButton *sinaButton;
 
 @end
 
@@ -22,6 +23,8 @@
     [super viewDidLoad];
     self.wechatButton.frame = CGRectMake(0, 0, 200, 50);
     self.wechatButton.center = self.view.center;
+    self.sinaButton.frame = CGRectMake(0, 0, 200, 50);
+    self.sinaButton.center = CGPointMake(self.view.center.x, self.view.center.y + 70);
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,4 +59,23 @@
             break;
     }
 }
+    
+- (UIButton *)sinaButton {
+    if (_sinaButton == nil) {
+        UIButton *button = [[UIButton alloc] init];
+        [button setBackgroundColor:[UIColor purpleColor]];
+        [button setTitle:@"分享到微博" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(shareToSina) forControlEvents:UIControlEventTouchUpInside];
+        _sinaButton = button;
+        [self.view addSubview:_sinaButton];
+    }
+    return _sinaButton;
+}
+    
+- (void)shareToSina {
+//    [WQShareSinaHelp shareToSinaWeiBo:@"" singleImage:[UIImage imageNamed:@""]];
+ 
+    [WQShareSinaHelp shareToSinaWeiBo:@"高清图片资源站-http://www.6shitu.com" images:@[[UIImage imageNamed:@"6shitu-bizhi324thu"],[UIImage imageNamed:@"6shitu-bizhi324thu"]] shareToStory:NO];
+}
+    
 @end

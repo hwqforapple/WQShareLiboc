@@ -9,7 +9,7 @@
 #import "WQAppDelegate.h"
 #import <WQShareLiboc/WQShareHelp.h>
 
-#define SINA_APPKEY @""
+#define SINA_APPKEY @"782556629"
 #define WECHAT_APPKEY @"wx575ca3588cc6f19e"
 #define QQ_APPKEY @""
 
@@ -56,6 +56,8 @@
     if ([url.absoluteString containsString:WECHAT_APPKEY]) {
         [WXApi handleOpenURL:url delegate:[WQWXApiManager shareManager]];
         return YES;
+    } else if ([url.absoluteString containsString:@""]) {
+        
     }
     return YES;
 }

@@ -17,14 +17,14 @@
     [WeiboSDK enableDebugMode:YES];
 }
 
-+ (BOOL)shareToSinaWeiBo:(NSString *)content singleImage:(UIImage *)image {
++ (BOOL)shareToSinaWeiBo:(NSString *)content images:(NSArray *)images shareToStory:(BOOL)isShareToStory {
     if ([WeiboSDK isWeiboAppInstalled]) {
         WBMessageObject *wbmsg = [[WBMessageObject alloc] init];
         wbmsg.text = content;
-        WBImageObject *wbImage = [[WBImageObject alloc] init];
-        NSData *imageData = UIImagePNGRepresentation(image);
-        wbImage.imageData = imageData;
-        wbmsg.imageObject = wbImage;
+        WBImageObject* obj = [WBImageObject object];
+        obj.isShareToStory = isShareToStory;
+        [obj addImages:images];
+        wbmsg.imageObject = obj;
         WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:wbmsg];
         [WeiboSDK sendRequest:request];
         return YES;
@@ -41,4 +41,12 @@
     
 }
 
-@end
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
+    
+}
+    
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
+    
+}
+    
+    @end
