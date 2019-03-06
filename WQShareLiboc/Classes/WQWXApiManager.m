@@ -28,7 +28,8 @@
 - (void)onResp:(BaseResp *)resp {
     //微信调整后 分享事件一律返回为成功 不再区别失败和取消
     if(![resp isKindOfClass:[SendMessageToWXResp class]]){
-    
+        //分享事件后回到本应用
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"WQWeChatShareBackToApp" object:nil];
     }
 }
 
