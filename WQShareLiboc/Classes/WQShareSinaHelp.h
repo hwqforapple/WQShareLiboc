@@ -21,7 +21,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)initSinaWeiBo:(NSString *)appKey isDebug:(BOOL)debug;
 
-+ (BOOL)shareToSinaWeiBo:(NSString *)content images:(NSArray *)images shareToStory:(BOOL)isShareToStory;
++ (instancetype)shareHelp;
+    
+/**
+ 分享单独文字内容
+
+ @param content 文字内容
+ @return 分享数据是否通过
+ */
+- (BOOL)shareToSinaText:(NSString *)content;
+ 
+    
+/**
+ 分享多图片
+
+ @param content 文字内容
+ @param images 图片数组【1-9】
+ @param isShareToStory 是否分享到故事
+ @return 分享数据是否通过
+ */
+- (BOOL)shareToSinaWeiBo:(NSString *)content images:(NSArray *)images shareToStory:(BOOL)isShareToStory;
 
 + (BOOL)handleUrl:(NSURL *)url delegate:(id<WeiboSDKDelegate>)delegate;
 @end

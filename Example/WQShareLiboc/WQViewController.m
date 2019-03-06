@@ -73,9 +73,7 @@
 }
     
 - (void)shareToSina {
-//    [WQShareSinaHelp shareToSinaWeiBo:@"" singleImage:[UIImage imageNamed:@""]];
- 
-    [WQShareSinaHelp shareToSinaWeiBo:@"高清图片资源站-http://www.6shitu.com" images:@[[UIImage imageNamed:@"6shitu-bizhi324thu"],[UIImage imageNamed:@"6shitu-bizhi324thu"]] shareToStory:NO];
+    [[WQShareSinaHelp shareHelp] shareToSinaWeiBo:@"高清图片资源站-http://www.6shitu.com" images:@[[UIImage imageNamed:@"6shitu-bizhi324thu"],[UIImage imageNamed:@"6shitu-bizhi324thu"]] shareToStory:NO];
 }
     
 @end
