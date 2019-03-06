@@ -40,5 +40,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'Weibo_SDK'
   s.dependency 'WechatOpenSDK'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'MBProgressHUD'
 end

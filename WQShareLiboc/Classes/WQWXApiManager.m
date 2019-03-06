@@ -6,6 +6,9 @@
 //
 
 #import "WQWXApiManager.h"
+#import <MBProgressHUD.h>
+#define IS_IPHONE_X (IS_IOS_11 && IS_IPHONE && (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) >= 375 && MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) >= 812))
+
 
 @implementation WQWXApiManager
 
@@ -23,19 +26,27 @@
 }
 
 - (void)onResp:(BaseResp *)resp {
-    if(![resp isKindOfClass:[SendMessageToWXResp class]]) return;
-    NSLog(@"%d",resp.errCode);
-    switch (resp.errCode) {
-        case 0:{
-            NSLog(@"分享成功");
-        }
-        default:
-        {
-            NSLog(@"分享失败");
-        }
-            break;
-    }
+    //微信调整后 分享事件一律返回为成功 不再区别失败和取消
+    if(![resp isKindOfClass:[SendMessageToWXResp class]]){
     
+    }
 }
 
+   
++ (void)showTips:(NSString *)tips {
+    UIApplication *application = UIApplication.sharedApplication;
+    UIWindow *window = [application keyWindow];
+    if([application.delegate respondsToSelector:@selector(window)]) {
+        window = [application.delegate window];
+    }
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:window];
+    hud.mode = MBProgressHUDModeText;
+    [hud removeFromSuperViewOnHide];
+    hud.label.text = tips;
+    [hud setOffset:CGPointMake(hud.offset.x, window.frame.size.height*3/5)];
+    [window addSubview:hud];
+    [hud showAnimated:YES];
+    [hud hideAnimated:YES afterDelay:1];
+    
+}
 @end
