@@ -56,10 +56,9 @@
     if ([url.absoluteString containsString:WECHAT_APPKEY]) {
         [WXApi handleOpenURL:url delegate:[WQWXApiManager shareManager]];
         return YES;
+    } else if ([url.absoluteString containsString:QQ_APPID]) {
+        return [[WQShareQQHelp shareQQHelp] application:app openURL:url options:options];
     }
-//    else if ([url.absoluteString containsString:@""]) {
-//
-//    }
     [[WQShareSinaHelp shareHelp] application:app openURL:url options:options];
     return YES;
 }
@@ -68,8 +67,11 @@
     if ([url.absoluteString containsString:WECHAT_APPKEY]) {
         [WXApi handleOpenURL:url delegate:[WQWXApiManager shareManager]];
         return YES;
+    } else if ([url.absoluteString containsString:QQ_APPID]) {
+        
+        return [[WQShareQQHelp shareQQHelp] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     }
-//    return [[WQShareSinaHelp shareHelp] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    return [[WQShareSinaHelp shareHelp] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     return YES;
 }
 @end

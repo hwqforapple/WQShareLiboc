@@ -91,6 +91,6 @@
 }
 
 - (void)shareToqq {
-    [[WQShareQQHelp shareQQHelp] shareText:@"高清图片头像GIF动图资源网站-http://6shitu.com"];
+    [[WQShareQQHelp shareQQHelp] shareWeburl:@"http://6shitu.com" title:@"高清壁纸头像GIF免费下载网-6视图网" description:@"高清壁纸,GIF动图,男女高清头像下载,免费高清素材下载" previewImageUrl:@"https://gitee.com/huwenqiangios/6_view_repository/raw/master/20190301/6shitu-xinggan3301.jpeg"];
 }
 @end

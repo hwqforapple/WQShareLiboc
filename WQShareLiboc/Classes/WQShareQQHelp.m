@@ -8,7 +8,9 @@
 #import "WQShareQQHelp.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
-@interface WQShareQQHelp()<TencentSessionDelegate>
+#import "WQShareHUD.h"
+
+@interface WQShareQQHelp()<TencentSessionDelegate,QQApiInterfaceDelegate>
 
 @end
 
@@ -47,6 +49,18 @@
 - (void)shareText:(NSString *)content {
     QQApiTextObject *txtObj = [QQApiTextObject objectWithText:content];
     SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:txtObj];
+    //将内容分享到qq
+    QQApiSendResultCode sent = [QQApiInterface sendReq:req];
+    [self handleSendResult:sent];
+}
+
+- (void)shareWeburl:(NSString *)url title:(NSString *)title description:(NSString *)description previewImageUrl:(NSString *)previewImageUrl {
+    QQApiNewsObject *newsObj = [QQApiNewsObject
+                                objectWithURL:[NSURL URLWithString:url]
+                                title:title
+                                description:description
+                                previewImageURL:[NSURL URLWithString:previewImageUrl]];
+    SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:newsObj];
     //将内容分享到qq
     QQApiSendResultCode sent = [QQApiInterface sendReq:req];
     [self handleSendResult:sent];
@@ -136,4 +150,41 @@
         }
     }
 }
+
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [QQApiInterface handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    return [QQApiInterface handleOpenURL:url delegate:self];
+}
+
+
+- (void)isOnlineResponse:(NSDictionary *)response {
+    
+}
+
+- (void)onReq:(QQBaseReq *)req {
+    NSLog(@"%s",__func__);
+}
+
+- (void)onResp:(QQBaseResp *)resp {
+    if(resp.type == ESENDMESSAGETOQQRESPTYPE) {
+        if ([resp.result isEqualToString:@"0"]) {
+            [WQShareHUD showTips:@"分享成功"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"WQShareQQSucceed" object:nil];
+        } else if ([resp.result isEqualToString:@"-4"]) {
+            [WQShareHUD showTips:@"取消分享"];
+        } else {
+            [WQShareHUD showTips:@"分享失败"];
+        }
+    }
+}
+
 @end
