@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WQShareLiboc'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'QQ，微博，微信分享库'
 
 # This description is used to generate tags and improve search results.
@@ -38,6 +38,7 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'MapKit'
+  s.vendored_frameworks = 'WQShareLiboc/FrameWorks/TencentOpenAPI.framework'
   s.dependency 'Weibo_SDK'
   s.dependency 'WechatOpenSDK'
   s.dependency 'MBProgressHUD'

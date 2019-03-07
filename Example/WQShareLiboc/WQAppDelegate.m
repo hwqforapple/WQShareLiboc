@@ -10,8 +10,8 @@
 #import <WQShareLiboc/WQShareHelp.h>
 
 #define SINA_APPKEY @"782556629"
-#define WECHAT_APPKEY @"wx575ca3588cc6f19e"
-#define QQ_APPKEY @""
+#define WECHAT_APPKEY @"wx3a78c50d9fbb1970"
+#define QQ_APPID @"101558092"
 
 @implementation WQAppDelegate
 
@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     [WQShareSinaHelp initSinaWeiBo:SINA_APPKEY isDebug:YES];
     [WQWechatHelp initWechat:WECHAT_APPKEY];
-    [WQShareQQHelp initQQ:QQ_APPKEY];
+    [[WQShareQQHelp shareQQHelp] initQQ:QQ_APPID];
     
     return YES;
 }
@@ -69,7 +69,7 @@
         [WXApi handleOpenURL:url delegate:[WQWXApiManager shareManager]];
         return YES;
     }
-    return [[WQShareSinaHelp shareHelp] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+//    return [[WQShareSinaHelp shareHelp] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     return YES;
 }
 @end

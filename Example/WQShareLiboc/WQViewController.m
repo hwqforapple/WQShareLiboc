@@ -13,7 +13,7 @@
 
 @property (weak, nonatomic) UIButton *wechatButton;
 @property (weak, nonatomic) UIButton *sinaButton;
-
+@property (weak, nonatomic) UIButton *qqButton;
 @end
 
 @implementation WQViewController
@@ -25,6 +25,8 @@
     self.wechatButton.center = self.view.center;
     self.sinaButton.frame = CGRectMake(0, 0, 200, 50);
     self.sinaButton.center = CGPointMake(self.view.center.x, self.view.center.y + 70);
+    self.qqButton.frame = CGRectMake(0, 0, 200, 50);
+    self.qqButton.center = CGPointMake(self.sinaButton.center.x, self.sinaButton.center.y + 70);
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,19 +49,19 @@
 
 - (void)shareToWeChat {
     WQShareReturnType type = [WQWechatHelp shareImage:[UIImage imageNamed:@"6shitu-bizhi324"] thumbData:[UIImage imageNamed:@"6shitu-bizhi324thu"] shareType:WQShareTypeChat];
-//    [WQWechatHelp shareWeb:@"http://6shitu.com" title:@"6视图网-高清壁纸图片素材下载站" description:@"免费高清素材下载,美女高清壁纸下载" thumbImage:[UIImage imageNamed:@"6shitu-bizhi324"] shareType:WQShareTypeChat];
+    //    [WQWechatHelp shareWeb:@"http://6shitu.com" title:@"6视图网-高清壁纸图片素材下载站" description:@"免费高清素材下载,美女高清壁纸下载" thumbImage:[UIImage imageNamed:@"6shitu-bizhi324"] shareType:WQShareTypeChat];
     switch (type) {
         case WQShareReturnTypeThumbImageSizeError:
-            {
-                NSLog(@"缩略图尺寸不对");
-            }
+        {
+            NSLog(@"缩略图尺寸不对");
+        }
             break;
             
         default:
             break;
     }
 }
-    
+
 - (UIButton *)sinaButton {
     if (_sinaButton == nil) {
         UIButton *button = [[UIButton alloc] init];
@@ -71,9 +73,24 @@
     }
     return _sinaButton;
 }
-    
+
 - (void)shareToSina {
     [[WQShareSinaHelp shareHelp] shareToSinaWeiBo:@"高清图片资源站-http://www.6shitu.com" images:@[[UIImage imageNamed:@"6shitu-bizhi324thu"],[UIImage imageNamed:@"6shitu-bizhi324thu"]] shareToStory:NO];
 }
-    
+
+- (UIButton *)qqButton {
+    if (_qqButton == nil) {
+        UIButton *button = [[UIButton alloc] init];
+        [button setBackgroundColor:[UIColor purpleColor]];
+        [button setTitle:@"分享到QQ" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(shareToqq) forControlEvents:UIControlEventTouchUpInside];
+        _qqButton = button;
+        [self.view addSubview:_qqButton];
+    }
+    return _qqButton;
+}
+
+- (void)shareToqq {
+    [[WQShareQQHelp shareQQHelp] shareText:@"高清图片头像GIF动图资源网站-http://6shitu.com"];
+}
 @end
