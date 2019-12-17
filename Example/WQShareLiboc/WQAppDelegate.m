@@ -19,7 +19,7 @@
 {
     // Override point for customization after application launch.
     [WQShareSinaHelp initSinaWeiBo:SINA_APPKEY isDebug:YES];
-    [WQWechatHelp initWechat:WECHAT_APPKEY];
+    [WQWechatHelp initWechat:WECHAT_APPKEY universalLink:@""];
     [[WQShareQQHelp shareQQHelp] initQQ:QQ_APPID];
     
     return YES;

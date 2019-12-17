@@ -9,8 +9,8 @@
 
 @implementation WQWechatHelp
 
-+ (void)initWechat:(NSString *)appKey {
-    [WXApi registerApp:appKey];
++ (void)initWechat:(NSString *)appKey universalLink:(NSString *)link {
+    [WXApi registerApp:appKey universalLink:link];
 }
 
 + (void)shareContent:(NSString *)content {
@@ -18,7 +18,13 @@
     req.bText = YES;
     req.text = content;
     req.scene = WXSceneSession;
-    [WXApi sendReq:req];
+    [WXApi sendReq:req completion:^(BOOL success) {
+        if (success) {
+            
+        } else {
+            
+        }
+    }];
 }
 
 + (WQShareReturnType)shareImage:(UIImage *)image thumbData:(UIImage *)thumbImage shareType:(WQShareType)type {
@@ -115,6 +121,12 @@
             req.scene = WXSceneTimeline;
             break;
     }
-    [WXApi sendReq:req];
+    [WXApi sendReq:req completion:^(BOOL success) {
+        if (success) {
+            
+        } else {
+            
+        }
+    }];
 }
 @end

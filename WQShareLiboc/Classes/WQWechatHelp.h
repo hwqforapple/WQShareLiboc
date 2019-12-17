@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WQWechatHelp : NSObject
 
-+ (void)initWechat:(NSString *)appKey;
++ (void)initWechat:(NSString *)appKey universalLink:(NSString *)link;
 
 /**
  分享大图
