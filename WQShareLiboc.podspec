@@ -40,6 +40,6 @@ Pod::Spec.new do |s|
   s.frameworks = 'UIKit', 'MapKit'
   s.vendored_frameworks = 'WQShareLiboc/FrameWorks/TencentOpenAPI.framework'
   s.dependency 'Weibo_SDK'
-  s.dependency 'WechatOpenSDK'
   s.dependency 'MBProgressHUD'
+  s.dependency 'WechatOpenSDK', '~> 1.8.4'
 end
